@@ -1,0 +1,38 @@
+
+<div class="signup_signin_common">  
+  
+  <div class="form_field_row">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h2>ログイン</h2>
+    <div class="field">
+      <%= f.label :メールアドレス, class: "label_field" %><br />
+      <div class="form_field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form_field_common" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :パスワード, class: "label_field" %><br />
+      <div class="form_field">
+        <%= f.password_field :password, autocomplete: "current-password", class: "form_field_common" %>
+      </div>
+    </div>
+    
+    <div class="field_remember">
+    <% if devise_mapping.rememberable? %>
+      <div class="field_check_box">
+        <%= f.check_box :remember_me, class: "remember_me_check" %>
+        <%= f.label :ログイン情報を記憶しますか？, class: "remember_me" %>
+      </div>
+    <% end %>
+    </div>
+
+    <div class="sign_up_in_common_btn">
+      <%= f.submit "送信する", class: "sign_up_in_common_btn_field" %>
+    </div>
+  <% end %>
+    <div class="another_pass_field">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

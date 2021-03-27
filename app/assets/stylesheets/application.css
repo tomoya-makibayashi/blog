@@ -21,7 +21,12 @@
 }
 
 body{
-    background-color: #FFF8DC
+    background-color: #FFF8DC;
+    height: auto !important;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 120px;
+    box-sizing: border-box;
 }
 
 .bg_image{
@@ -32,9 +37,9 @@ body{
     width: 100%;
     background-color: #8B4513;
     color: #fff;
-    height: auto !important; 
-    height: 100%; 
-    min-height: 100%; 
+    height: auto !important;
+    position: absolute;
+    bottom: 0;
 }
 
 .footer_copyright{
