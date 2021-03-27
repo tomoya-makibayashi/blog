@@ -1,0 +1,98 @@
+<div class="contents_show">
+        <h2>投稿の詳細</h2>
+        <div class="article_show">
+            <div class="article_show_title">
+                タイトル「<%= @article.title %>」
+            </div>
+            <div class="article_show_image">
+                <%= image_tag @article.image, class: "article_show_image_field" %>
+            </div>
+            <div class="article_show_text">
+                <div class="article_show_text_field">
+                    <%= simple_format(@article.text) %>
+                </div>
+                <div class="article_show_menu_list">
+                    <div class="article_show_text_time">
+                        最終更新：<time><%= time_ago_in_words @article.updated_at %></time>
+                    </div>
+                    <div class="article_show_btn_list">
+                        <div class="article_menu_btn">
+                            <%= link_to '編集', edit_article_path(@article), class: "article_menu_common_btn" %>
+                        </div>
+                        <div class="article_menu_btn">
+                        感想
+                        </div>
+                        <div class="article_menu_btn article_menu_btn_dele">
+                            <%= link_to '削除', article_path(@article), method: :delete, class: "article_menu_common_btn" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article_show_user_field">
+                <span>投稿者情報</span>
+                <div class="article_show_user_info">
+                    <div class="article_user_show_image">
+                        <%= image_tag 'image1.jpeg', class: "article_show_user_image" %>
+                    </div>
+                    <div class="article_show_user_group">
+                        <div class="article_show_user">
+                            <span>ニックネーム：</span>マッキー
+                        </div>
+                        <div class="article_show_user">
+                            <span>生年月日：</span>1994年4月5日
+                        </div>
+                        <div class="article_show_user">
+                            <span>年齢：</span>26歳
+                        </div>
+                        <div class="article_show_user">
+                            <span>出身：</span>山口県
+                        </div>
+                        <div class="article_show_user">
+                            <span>趣味：</span>読書,お酒
+                        </div>
+                        <div class="article_show_user">
+                            <span>座右の銘：</span>Burn to Shine!
+                        </div>
+                        <div class="article_show_user">
+                            <span>自己紹介：</span><br/>
+                            どうも、よろしくお願いいたします。<br/>
+                            定期的に思い出を配信できればと思います。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article_show_review_field">
+                <span class="subtitle">投稿の感想一覧</span>
+                <div class="article_show_review">
+                    <div class="article_review_box">
+                        <div class="review_user_image_box">
+                            <%= image_tag 'image1.jpeg', class: "review_user_image" %>
+                            <div class="review_user_name">マキ</div>
+                        </div>
+                        <div class="review_user_review">面白い</div>
+                    </div>
+                    <div class="article_review_box">
+                        <div class="review_user_image_box">
+                            <%= image_tag 'image1.jpeg', class: "review_user_image" %>
+                            <div class="review_user_name">マキ</div>
+                        </div>
+                        <div class="review_user_review">面白い</div>
+                    </div>
+                    <div class="article_review_box">
+                        <div class="review_user_image_box">
+                            <%= image_tag 'image1.jpeg', class: "review_user_image" %>
+                            <div class="review_user_name">マキ</div>
+                        </div>
+                        <div class="review_user_review">面白い</div>
+                    </div>
+                    <div class="article_review_box">
+                        <div class="review_user_image_box">
+                            <%= image_tag 'image1.jpeg', class: "review_user_image" %>
+                            <div class="review_user_name">マキ</div>
+                        </div>
+                        <div class="review_user_review">面白い</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
