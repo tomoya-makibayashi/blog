@@ -1,7 +1,10 @@
+Application.html.erb
+
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>Miniblog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +13,27 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="header_box">
+        <div class="header_box_menu">
+            <div class="header_box_menu_icon">
+            <%= link_to "Blogs", root_path, class: "header_box_menu_icon_btn" %>
+            </div>
+            <ul class="header_box_menu_list">
+                <li class="header_box_menu_list_btn">
+                <%= link_to "新規投稿", new_article_path, class: "header_box_menu_list_btn1" %>
+                </li>
+                <li class="header_box_menu_list_btn">マイページ</li>
+                <li class="header_box_menu_list_btn">ログイン</li>
+                <li class="header_box_menu_list_btn">ログアウト</li>
+            </ul>    
+        </div>
+      </div>
+  </header>
+
     <%= yield %>
   </body>
+  <footer class="footer">
+    <div class="footer_copyright">@copyright Tomoya Makibasyashi 2021</div>
+  </footer>
 </html>
