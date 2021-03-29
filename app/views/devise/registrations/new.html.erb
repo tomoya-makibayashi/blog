@@ -9,13 +9,6 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form_field_common" %>
       </div>
     </div>
-    
-    <div class="field">
-        <%= f.label :ニックネーム, class: "label_field" %><br />
-      <div class="form_field">
-        <%= f.email_field :nickname, autofocus: true, class: "form_field_common" %>
-      </div>
-    </div>
 
     <div class="field">
       <%= f.label :パスワード, class: "label_field" %>
@@ -31,6 +24,55 @@
       <%= f.label :パスワード（確認）, class: "label_field" %><br />
       <div class="form_field">
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form_field_common" %>
+      </div>
+    </div>
+    
+    <div class="field">
+        <%= f.label :ニックネーム, class: "label_field" %><br />
+      <div class="form_field">
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "form_field_common", maxlength: 6, placeholder: "最大６文字" %>
+      </div>
+    </div>
+    
+    <div class="field">
+        <%= f.label :年齢, class: "label_field" %><br />
+      <div class="form_field">
+        <%= f.number_field :age, class: "form_field_common", min: 15, max: 100 %>
+      </div>
+    </div>
+    
+    <div class="field">
+        <%= f.label :趣味, class: "label_field" %><br />
+      <div class="form_field">
+        <%= f.text_field :hobby, autofocus: true, autocomplete: "hobby", class: "form_field_common", maxlength: 15, placeholder: "最大15文字" %>
+      </div>
+    </div>
+    
+    <div class="field">
+        <%= f.label :出身都道府県, class: "label_field" %><br />
+      <div class="form_field">
+        <%= f.text_field :prefecture, autofocus: true, autocomplete: "prefecture", class: "form_field_common", placeholder: "都道府県も入力ください" %>
+      </div>
+    </div>
+    
+    <div class="field">
+        <%= f.label :座右の銘, class: "label_field" %><br />
+      <div class="form_field">
+        <%= f.text_field :motto, autofocus: true, autocomplete: "motto", class: "form_field_common", maxlength: 30, placeholder: "30文字以内" %>
+      </div>
+    </div>
+    
+    <div class="field">
+        <%= f.label :自己紹介, class: "label_field" %><br />
+      <div class="form_field">
+        <%= f.text_area :self, autofocus: true, class: "form_field_common sign_up_text" %>
+      </div>
+    </div>
+    
+    <div class="field">
+        <%= f.label :イメージ画像, class: "label_field" %><br />
+      <div class="form_field">
+        <%= f.file_field :user_image, autofocus: true, class: "form_field_common" %>
       </div>
     </div>
 

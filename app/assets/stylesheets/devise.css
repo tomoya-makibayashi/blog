@@ -50,10 +50,14 @@
 
 .form_field_common{
     width: 90%;
-    height: 30px;
+    height: 40px;
     font-size: 20px;
     line-height: 25px;
     display: inline-block;   
+}
+
+.form_field_common.sign_up_text{
+    height: 100px;
 }
 
 .remember_me{

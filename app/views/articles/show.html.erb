@@ -16,15 +16,17 @@
                         最終更新：<time><%= time_ago_in_words @article.updated_at %></time>
                     </div>
                     <div class="article_show_btn_list">
-                        <div class="article_menu_btn">
-                            <%= link_to '編集', edit_article_path(@article), class: "article_menu_common_btn" %>
-                        </div>
+                        <% if user_signed_in? && current_user.id == @article.user_id %>
                         <div class="article_menu_btn">
                         感想
+                        </div>
+                        <div class="article_menu_btn">
+                            <%= link_to '編集', edit_article_path(@article), class: "article_menu_common_btn" %>
                         </div>
                         <div class="article_menu_btn article_menu_btn_dele">
                             <%= link_to '削除', article_path(@article), method: :delete, class: "article_menu_common_btn" %>
                         </div>
+                        <% end %>
                     </div>
                 </div>
             </div>
@@ -32,31 +34,27 @@
                 <span>投稿者情報</span>
                 <div class="article_show_user_info">
                     <div class="article_user_show_image">
-                        <%= image_tag 'image2.jpeg', class: "article_show_user_image" %>
+                        <%= image_tag @article.user.user_image, class: "article_show_user_image" %>
                     </div>
                     <div class="article_show_user_group">
                         <div class="article_show_user">
-                            <span>ニックネーム：</span>マッキー
+                            <span>ニックネーム：</span><%= @article.user.nickname %>
                         </div>
                         <div class="article_show_user">
-                            <span>生年月日：</span>1994年4月5日
+                            <span>年齢：</span><%= @article.user.age %>
                         </div>
                         <div class="article_show_user">
-                            <span>年齢：</span>26歳
+                            <span>出身：</span><%= @article.user.prefecture %>
                         </div>
                         <div class="article_show_user">
-                            <span>出身：</span>山口県
+                            <span>趣味：</span><%= @article.user.hobby %>
                         </div>
                         <div class="article_show_user">
-                            <span>趣味：</span>読書,お酒
-                        </div>
-                        <div class="article_show_user">
-                            <span>座右の銘：</span>Burn to Shine!
+                            <span>座右の銘：</span><%= @article.user.motto %>
                         </div>
                         <div class="article_show_user">
                             <span>自己紹介：</span><br/>
-                            どうも、よろしくお願いいたします。<br/>
-                            定期的に思い出を配信できればと思います。
+                            <%= simple_format(@article.user.self) %>
                         </div>
                     </div>
                 </div>
