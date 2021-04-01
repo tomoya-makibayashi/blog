@@ -1,0 +1,29 @@
+<div class="review_contents_new">
+    <h2>感想</h2>
+    <div class="review_article_info">
+        <div class="article_info">
+            <p class="article_image_box">
+                <%= image_tag @article.image, class: "article_image" %>
+            </p>
+        </div>
+        <div class="article_text">
+            <div class="article_title">
+                <%= @article.title %>
+            </div>
+            <div class="re_text_field">
+                <%= simple_format(@article.text) %>
+            </div>
+        </div>
+    </div>
+    <%= form_for [@article, @review] do |f| %>
+        <div class="review_new">
+            <div class="review_new_text">
+                <%= f.text_area :text, placeholder: "ここに本文を入力", autofocus: true, class: "review_new_text_field" %>
+            </div>
+            <div class="article_new_btn">
+                <%= f.submit "投稿する", class: "article_new_btn_field" %>
+            </div>
+        </div>
+        
+    <% end %>
+</div>

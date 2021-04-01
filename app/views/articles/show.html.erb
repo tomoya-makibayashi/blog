@@ -18,13 +18,14 @@
                     <div class="article_show_btn_list">
                         <% if user_signed_in? && current_user.id == @article.user_id %>
                         <div class="article_menu_btn">
-                        感想
-                        </div>
-                        <div class="article_menu_btn">
                             <%= link_to '編集', edit_article_path(@article), class: "article_menu_common_btn" %>
                         </div>
                         <div class="article_menu_btn article_menu_btn_dele">
                             <%= link_to '削除', article_path(@article), method: :delete, class: "article_menu_common_btn" %>
+                        </div>
+                        <% elsif user_signed_in? && current_user.id != @article.user_id %>
+                        <div class="article_menu_btn">
+                            <%= link_to '感想', new_article_review_path(@article), class: "article_menu_common_btn" %>
                         </div>
                         <% end %>
                     </div>
@@ -35,6 +36,11 @@
                 <div class="article_show_user_info">
                     <div class="article_user_show_image">
                         <%= image_tag @article.user.user_image, class: "article_show_user_image" %>
+                        <% if user_signed_in? && current_user.id == @article.user_id %>
+                            <div class="user_menu_btn">
+                                <%= link_to '編集', edit_user_path(current_user), class: "article_menu_common_btn" %>
+                            </div>
+                        <% end %>
                     </div>
                     <div class="article_show_user_group">
                         <div class="article_show_user">
@@ -62,34 +68,12 @@
             <div class="article_show_review_field">
                 <span class="subtitle">投稿の感想一覧</span>
                 <div class="article_show_review">
-                    <div class="article_review_box">
-                        <div class="review_user_image_box">
-                            <%= image_tag 'image2.jpeg', class: "review_user_image" %>
-                            <div class="review_user_name">マキ</div>
-                        </div>
-                        <div class="review_user_review">面白い</div>
-                    </div>
-                    <div class="article_review_box">
-                        <div class="review_user_image_box">
-                            <%= image_tag 'image2.jpeg', class: "review_user_image" %>
-                            <div class="review_user_name">マキ</div>
-                        </div>
-                        <div class="review_user_review">面白い</div>
-                    </div>
-                    <div class="article_review_box">
-                        <div class="review_user_image_box">
-                            <%= image_tag 'image2.jpeg', class: "review_user_image" %>
-                            <div class="review_user_name">マキ</div>
-                        </div>
-                        <div class="review_user_review">面白い</div>
-                    </div>
-                    <div class="article_review_box">
-                        <div class="review_user_image_box">
-                            <%= image_tag 'image2.jpeg', class: "review_user_image" %>
-                            <div class="review_user_name">マキ</div>
-                        </div>
-                        <div class="review_user_review">面白い</div>
-                    </div>
+                    <% if @reviews.present? %>
+                    <%= render partial: "reviews/review", collection: @reviews %>
+                    <% else %>
+                    <br/>
+                    <%= link_to '※まだ感想はありません', new_article_review_path(@article), class: "article_show_review_alert" %>
+                    <% end %>
                 </div>
             </div>
         </div>

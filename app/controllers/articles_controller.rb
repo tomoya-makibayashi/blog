@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
     
     def show
         @article = Article.find(params[:id])
+        @reviews = Review.where(article_id: @article.id)
     end
     
     def destroy

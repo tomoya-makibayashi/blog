@@ -21,7 +21,9 @@
                 <%= link_to "新規投稿", new_article_path, class: "header_box_menu_list_btn1" %>
                 </li>
                 <% if user_signed_in? %>
-                <li class="header_box_menu_list_btn">マイページ</li>
+                <li class="header_box_menu_list_btn">
+                <%= link_to "マイページ", user_path(current_user), class: "header_box_menu_list_btn1" %>
+                </li>
                 <li class="header_box_menu_list_btn">
                 <%= link_to "ログアウト", destroy_user_session_path, class: "header_box_menu_list_btn1", method: :delete %>
                 </li>

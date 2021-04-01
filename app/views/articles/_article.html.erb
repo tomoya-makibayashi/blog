@@ -23,24 +23,19 @@
                 <div class="article_menu_btn">
                     <%= link_to '詳細', article_path(article), class: "article_menu_common_btn" %>
                 </div>
-                <% if user_signed_in? %>
-                    <% if current_user.id == article.user_id %>
+                <% if user_signed_in? && current_user.id == article.user_id %>
                     <div class="article_menu_btn">
                         <%= link_to '編集', edit_article_path(article), class: "article_menu_common_btn" %>
                     </div>
                     <div class="article_menu_btn article_menu_btn_dele">
                         <%= link_to '削除', article_path(article), method: :delete, class: "article_menu_common_btn" %>
                     </div>
-                    <% end %>
-                <div class="article_menu_btn">
-                    感想
-                </div>
+                <% elsif user_signed_in? && current_user.id != article.user_id %>
+                    <div class="article_menu_btn">
+                        <%= link_to '感想', new_article_review_path(article), class: "article_menu_common_btn" %>
+                    </div>
                 <% end %>
             </div>
         </div>
-    </div>
-    <div class="article_question_info">
-        <span class="article_question">未回答の質問・感想が◯件→　</span>
-        <div class="article_question_btn">回答する</div>
     </div>
 </div>

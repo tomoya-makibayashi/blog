@@ -1,0 +1,11 @@
+<div class="article_review_box">
+    <div class="review_user_image_box">
+        <%= image_tag review.user.user_image, class: "review_user_image" %>
+            <div class="review_user_name">
+                <%= review.user.nickname %>
+            </div>
+    </div>
+    <div class="review_user_review">
+        <%= review.text %>
+    </div>
+</div>

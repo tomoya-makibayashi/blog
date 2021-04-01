@@ -60,10 +60,6 @@
     height: 100px;
 }
 
-.remember_me{
-    color: #000;
-}
-
 .sign_up_in_common_btn{
     text-align: center;
     margin-top: 20px;
@@ -110,5 +106,5 @@
 .remember_me{
     font-weight: bold;
     font-size: 14px;
+    color: #000;
 }
-

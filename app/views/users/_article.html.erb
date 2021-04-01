@@ -1,0 +1,34 @@
+<div class="article_mypage">
+<div class="article_group">
+    <div class="article_info">
+        <p class="article_image_box">
+            <%= image_tag article.image, class: "article_image" %>
+        </p>
+        <div class="article_menu_mypage">
+            <div class="article_menu_btn">
+                <%= link_to '編集', edit_article_path(article), class: "article_menu_common_btn" %>
+            </div>
+            <div class="article_menu_btn article_menu_btn_dele">
+                <%= link_to '削除', article_path(article), method: :delete, class: "article_menu_common_btn" %>
+            </div>
+        </div>
+    </div>
+    <div class="article_text">
+        <div class="article_title">
+            <%= article.title %>
+        </div>
+        <div class="article_text_field_mypage">
+            <%= simple_format(article.text) %>
+        </div>
+    </div>
+</div>
+<div class="article_question_info_mypage">
+    <span class="article_question_mypage">投稿の感想一覧</span>
+    <% if @reviews.present? %>
+    <%= render partial: "users/review", collection: @reviews %>
+    <% else %>
+    <br/><span class="article_question_mypage_alert">※まだ感想はありません</span>
+    <% end %>
+</div>
+</div>
+    

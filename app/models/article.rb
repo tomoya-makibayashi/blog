@@ -4,4 +4,5 @@ class Article < ApplicationRecord
     validates :title, :text, :image, presence: true
     
     belongs_to :user
+    has_many :reviews
 end
